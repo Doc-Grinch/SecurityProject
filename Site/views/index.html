@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../static/bootstrap.min.css" media="all" type="text/css">
+    <link rel="stylesheet" href="../static/style.css" media="all" type="text/css">
+    <link rel="shortcut icon" type="image/png" href="/static/favicon.ico"/>
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="../static/jquery-3.5.1.min.js"></script>
+    <script src="../static/popper.min.js"></script>
+    <script src="../static/bootstrap.min.js"></script>
+    <title>Web Vulnerabilities Scanner</title>
+  </head>
+  <body>
+    <header class="container">
+      <div class="row">
+        <div class="col-md-12"><h1 class="title bg-warning"><strong>Web Vulnerabilities Scanner</strong></h1></div>
+      </div>
+    </header>
+
+    <div class="container">
+
+      <div class="border-bottom">
+        <h2>Choose your options</h2>
+      </div>
+
+      <div>
+        <h4>Dirsearch's Options</h4>
+      </div>
+      <p>Dirsearch is a mature command-line tool designed to brute force directories and files in webservers.With 6 years of growth, dirsearch
+        now has become the top web content scanner. As a feature-rich tool, dirsearch gives users the opportunity to perform a complex web content
+         discovering, with many vectors for the wordlist, high accuracy, impressive performance, advanced connection/request settings, modern
+         brute-force techniques and nice output.
+       </p>
+       <form method="POST" action="/scan" class="">
+         <label for="wordlistSelection">Choose your wordlist</label>
+         <div class="dropdown">
+           <select class="btn-group" role="group" aria-label="Basic example" name="usedWordlist" id="wordlistSelection">
+             <option type="button" class="btn btn-secondary" value="/one.txt">Lite wordlist</option>
+             <option type="button" class="btn btn-secondary" value="/filesNdirs.wordlist" selected>Medium wordlist</option>
+             <option type="button" class="btn btn-secondary" value="/directory-list-lowercase-2.3-big.txt">Big wordlist</option>
+           </select>
+          </div>
+
+          <div>
+            <h10>You can find the link of Dirsearch here : <a href="https://github.com/maurosoria/dirsearch">Dirsearch</a></h10>
+          </div>
+
+        <div class="pt-3">
+          <h4>Nikto's Options</h4>
+        </div>
+        <p>Nikto is a web server assessment tool. It is designed to find various default and insecure files, configurations and programs on any type of web server.
+           Examine a web server to find potential problems and security vulnerabilities, including: Server and software misconfigurations, Default files and programs,
+           Insecure files and programs, Outdated servers and programs
+           Nikto is built on LibWhisker2 (by RFP) and can run on any platform which has a Perl environment.
+           It supports SSL, proxies, host authentication, attack encoding and more. It can be updated automatically from the command-line,
+           and supports the optional submission of updated version data back to the maintainers.
+         </p>
+
+
+         <label for="niktoOptions">Choose your Nikto's options</label>
+           <div class="form-check" name="niktoOptions1">
+             <input class="form-check-input" type="checkbox" id="niktoFirstOption" value="1,2">
+             <label class="form-check-label" for="niktoFirstOption">Interesting File / Seen in logs & Misconfiguration / Default File</label>
+           </div>
+           <div class="form-check" name="niktoOptions2">
+             <input class="form-check-input" type="checkbox" id="niktoSecondOption" value="3,4">
+             <label class="form-check-label" for="niktoSecondOption">Information Disclosure & Injection (XSS/Script/HTML)</label>
+           </div>
+           <div class="form-check">
+             <input class="form-check-input" type="checkbox" id="niktoThirdOption" value="5,6">
+             <label class="form-check-label" for="niktoThirdOption">Remote File Retrieval - Inside Web Root & Denial of Service</label>
+           </div>
+           <div class="form-check">
+             <input class="form-check-input" type="checkbox" id="niktoFourthOption" value="7,8">
+             <label class="form-check-label" for="niktoFourthOption">Remote File Retrieval - Server Wide & Command Execution / Remote Shell</label>
+           </div>
+           <div class="form-check">
+             <input class="form-check-input" type="checkbox" id="niktoFifthOption" value="9,0">
+             <label class="form-check-label" for="niktoFifthOption">SQL Injection & File Upload</label>
+           </div>
+           <div class="form-check">
+             <input class="form-check-input" type="checkbox" id="niktoSixthOption" value="a,b,c">
+             <label class="form-check-label" for="niktoSixthOption">Authentication Bypass & Software Identification & Remote Source Inclusion</label>
+           </div>
+           <div class="form-check">
+             <input class="form-check-input" type="checkbox" id="niktoSeventhOption" value="x">
+             <label class="form-check-label" for="niktoSeventhOption">Check Everything</label>
+           </div>
+           <div>
+             <h10>You can find the link of Nikto here : <a href="https://github.com/sullo/nikto">Nikto</a></h10>
+           </div>
+
+        <div class="pt-3">
+          <h4>Wapiti's Options</h4>
+        </div>
+
+        <div>
+          <h3 class="border-bottom">Launch The Scan</h3>
+          <div class="row justify-content-center align-items-center">
+              <div class="form-group">
+                  <label for="url">Entrez votre URL</label>
+                  <input type="text" class="form-control" placeholder="http://vuln.com" name="testedURL">
+              </div>
+                <button type="submit" class="btn btn-secondary btn-lg btn-block">Scan</button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+
+
+  </body>
+</html>

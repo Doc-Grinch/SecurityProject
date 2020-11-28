@@ -1,0 +1,25 @@
+%rebase('base.tpl')
+- Nikto v2.1.6/2.1.5
+</br>+ Target Host: icehw.net
+</br>+ Target Port: 80
+</br>+ GET Retrieved x-powered-by header: PHP/5.3.10-1ubuntu3.4
+</br>+ GET The anti-clickjacking X-Frame-Options header is not present.
+</br>+ GET The X-XSS-Protection header is not defined. This header can hint to the user agent to protect against some forms of XSS
+</br>+ GET The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type
+</br>+ GET Server may leak inodes via ETags, header found with file /robots.txt, inode: 549613, size: 0, mtime: Tue Aug 11 19:55:55 2009
+</br>+ HEAD Apache/2.2.22 appears to be outdated (current is at least Apache/2.4.37). Apache 2.2.34 is the EOL for the 2.x branch.
+</br>+ GET Uncommon header 'tcn' found, with contents: list
+</br>+ GET Apache mod_negotiation is enabled with MultiViews, which allows attackers to easily brute force file names. See http://www.wisec.it/sectou.php?id=4698ebdc59d15. The following alternatives for 'index' were found: index.php
+</br>+ VRJUFBQP Web Server returns a valid response with junk HTTP methods, this may cause false positives.
+</br>+ DEBUG DEBUG HTTP verb may show server debugging information. See http://msdn.microsoft.com/en-us/library/e8z01xdh%28VS.80%29.aspx for details.
+</br>+ GET Cookie PHPSESSID created without the httponly flag
+</br>+ OSVDB-12184: GET /?=PHPB8B5F2A0-3C92-11d3-A3A9-4C7B08C10000: PHP reveals potentially sensitive information via certain HTTP requests that contain specific QUERY strings.
+</br>+ OSVDB-12184: GET /?=PHPE9568F36-D428-11d2-A769-00AA001ACF42: PHP reveals potentially sensitive information via certain HTTP requests that contain specific QUERY strings.
+</br>+ OSVDB-12184: GET /?=PHPE9568F34-D428-11d2-A769-00AA001ACF42: PHP reveals potentially sensitive information via certain HTTP requests that contain specific QUERY strings.
+</br>+ OSVDB-12184: GET /?=PHPE9568F35-D428-11d2-A769-00AA001ACF42: PHP reveals potentially sensitive information via certain HTTP requests that contain specific QUERY strings.
+</br>+ OSVDB-3268: GET /css/: Directory indexing found.
+</br>+ OSVDB-3092: GET /css/: This might be interesting...
+</br>+ GET /error_log: Potential PHP MySQL database connection string found.
+</br>+ OSVDB-3092: GET /error_log: This might be interesting...
+</br> </body> 
+</html

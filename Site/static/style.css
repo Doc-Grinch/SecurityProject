@@ -1,0 +1,26 @@
+body {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background-color: #FFFFF0;
+}
+
+[class*="col-"] {
+	border-radius: 6px;
+	text-align: center;
+}
+
+p {
+	text-align: left;
+	margin-top: 20px;
+}
+
+.title {
+	font-size: 50px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	border-radius: 5px;
+}
+
+a {
+	color: black;
+}
