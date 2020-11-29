@@ -1,5 +1,6 @@
 from bottle import Bottle, run, static_file, template, request #Allow to use Bottle functions
-import os, sys, webbrowser                                     #Allow to interact with the system
+import os, sys, webbrowser
+from pprint import pprint                                   #Allow to interact with the system
 import subprocess                                              #Allow to use system commands
 from subprocess import PIPE
 
@@ -33,7 +34,12 @@ def showScann():
 def testURL():
     testedURL = request.forms.testedURL
     usedWordlist = request.forms.usedWordlist
-    tuningValues = request.forms.niktoOptions1
+    tV1 = request.forms.niktoOptions1
+    tV2 = request.forms.niktoOptions2
+    tV3 = request.forms.niktoOptions3
+    tV4 = request.forms.niktoOptions4
+    tV5 = request.forms.niktoOptions5
+    tV6 = request.forms.niktoOptions6
 
     if not testedURL:
         return "Veuillez entrer une URL"
@@ -52,19 +58,19 @@ def testURL():
     #
     # filename = 'http://localhost:8080/scanner'
     # webbrowser.open(filename)
-
-    niktoResults = subprocess.run(['sudo', 'nikto', '-host', testedURL, '-output', ROOT_PATH + '/results/niktoResult.txt','-Tuning', tuningValues,  '-until', '120s']) 
-
-    with open('results/niktoResult.txt', 'r') as readFile:
-        with open('views/vuln1.html','w') as writeFile:
-            writeFile.write("%rebase('base.tpl')\n")
-            for line in readFile:
-                writeFile.write(line)
-                writeFile.write('</br>')
-            writeFile.write(" </body> \n</html")
-
-    filename = 'http://localhost:8080/vuln1'
-    webbrowser.open(filename)
+    #
+    # niktoResults = subprocess.run(['sudo', 'nikto', '-host', testedURL, '-output', ROOT_PATH + '/results/niktoResult.txt', '-Tuning', tV1, tV2, '-maxtime', tV5, tV6, '-ask', 'no', tV3, tV4])
+    #
+    # with open('results/niktoResult.txt', 'r') as readFile:
+    #     with open('views/vuln1.html','w') as writeFile:
+    #         writeFile.write("%rebase('base.tpl')\n")
+    #         for line in readFile:
+    #             writeFile.write(line)
+    #             writeFile.write('</br>')
+    #         writeFile.write(" </body> \n</html")
+    #
+    # filename = 'http://localhost:8080/vuln1'
+    # webbrowser.open(filename)
     #
     # wapitiResult = subprocess.run(['sudo', 'wapiti', '-u', testedURL, '-o', ROOT_PATH + '/wapitiResult.txt', '-f', 'txt', '-v', '1'])
     #

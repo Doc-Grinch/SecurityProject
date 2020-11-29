@@ -1,25 +1,176 @@
 %rebase('base.tpl')
 - Nikto v2.1.6/2.1.5
-</br>+ Target Host: icehw.net
+</br>+ Target Host: 192.168.1.5
 </br>+ Target Port: 80
-</br>+ GET Retrieved x-powered-by header: PHP/5.3.10-1ubuntu3.4
 </br>+ GET The anti-clickjacking X-Frame-Options header is not present.
 </br>+ GET The X-XSS-Protection header is not defined. This header can hint to the user agent to protect against some forms of XSS
 </br>+ GET The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type
-</br>+ GET Server may leak inodes via ETags, header found with file /robots.txt, inode: 549613, size: 0, mtime: Tue Aug 11 19:55:55 2009
-</br>+ HEAD Apache/2.2.22 appears to be outdated (current is at least Apache/2.4.37). Apache 2.2.34 is the EOL for the 2.x branch.
-</br>+ GET Uncommon header 'tcn' found, with contents: list
-</br>+ GET Apache mod_negotiation is enabled with MultiViews, which allows attackers to easily brute force file names. See http://www.wisec.it/sectou.php?id=4698ebdc59d15. The following alternatives for 'index' were found: index.php
-</br>+ VRJUFBQP Web Server returns a valid response with junk HTTP methods, this may cause false positives.
-</br>+ DEBUG DEBUG HTTP verb may show server debugging information. See http://msdn.microsoft.com/en-us/library/e8z01xdh%28VS.80%29.aspx for details.
-</br>+ GET Cookie PHPSESSID created without the httponly flag
-</br>+ OSVDB-12184: GET /?=PHPB8B5F2A0-3C92-11d3-A3A9-4C7B08C10000: PHP reveals potentially sensitive information via certain HTTP requests that contain specific QUERY strings.
-</br>+ OSVDB-12184: GET /?=PHPE9568F36-D428-11d2-A769-00AA001ACF42: PHP reveals potentially sensitive information via certain HTTP requests that contain specific QUERY strings.
-</br>+ OSVDB-12184: GET /?=PHPE9568F34-D428-11d2-A769-00AA001ACF42: PHP reveals potentially sensitive information via certain HTTP requests that contain specific QUERY strings.
-</br>+ OSVDB-12184: GET /?=PHPE9568F35-D428-11d2-A769-00AA001ACF42: PHP reveals potentially sensitive information via certain HTTP requests that contain specific QUERY strings.
-</br>+ OSVDB-3268: GET /css/: Directory indexing found.
-</br>+ OSVDB-3092: GET /css/: This might be interesting...
-</br>+ GET /error_log: Potential PHP MySQL database connection string found.
-</br>+ OSVDB-3092: GET /error_log: This might be interesting...
+</br>+ OSVDB-3268: GET /: Directory indexing found.
+</br>+ HEAD Perl/v5.16.3 appears to be outdated (current is at least v5.20.0)
+</br>+ HEAD Apache/2.2.31 appears to be outdated (current is at least Apache/2.4.37). Apache 2.2.34 is the EOL for the 2.x branch.
+</br>+ HEAD mod_ssl/2.2.31 appears to be outdated (current is at least 2.8.31) (may depend on server version)
+</br>+ HEAD mod_wsgi/3.4 appears to be outdated (current is at least 4.0)
+</br>+ HEAD OpenSSL/1.0.2h appears to be outdated (current is at least 1.1.1). OpenSSL 1.0.0o and 0.9.8zc are also current.
+</br>+ HEAD Python/2.7.6 appears to be outdated (current is at least 2.7.8)
+</br>+ OPTIONS Allowed HTTP Methods: GET, HEAD, POST, OPTIONS, TRACE 
+</br>+ OSVDB-877: TRACE HTTP TRACE method is active, suggesting the host is vulnerable to XST
+</br>+ GET mod_ssl/2.2.31 OpenSSL/1.0.2h mod_fcgid/2.3.9 mod_wsgi/3.4 Python/2.7.6 PHP/7.4.1 mod_perl/2.0.8 Perl/v5.16.3 - mod_ssl 2.8.7 and lower are vulnerable to a remote buffer overflow which may allow a remote shell. CVE-2002-0082, OSVDB-756.
+</br>- Nikto v2.1.6/2.1.5
+</br>+ Target Host: 192.168.1.5
+</br>+ Target Port: 80
+</br>+ GET The anti-clickjacking X-Frame-Options header is not present.
+</br>+ GET The X-XSS-Protection header is not defined. This header can hint to the user agent to protect against some forms of XSS
+</br>+ GET The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type
+</br>+ OSVDB-3268: GET /: Directory indexing found.
+</br>+ HEAD mod_ssl/2.2.31 appears to be outdated (current is at least 2.8.31) (may depend on server version)
+</br>+ HEAD mod_wsgi/3.4 appears to be outdated (current is at least 4.0)
+</br>+ HEAD Python/2.7.6 appears to be outdated (current is at least 2.7.8)
+</br>+ HEAD Apache/2.2.31 appears to be outdated (current is at least Apache/2.4.37). Apache 2.2.34 is the EOL for the 2.x branch.
+</br>+ HEAD OpenSSL/1.0.2h appears to be outdated (current is at least 1.1.1). OpenSSL 1.0.0o and 0.9.8zc are also current.
+</br>+ HEAD Perl/v5.16.3 appears to be outdated (current is at least v5.20.0)
+</br>+ OPTIONS Allowed HTTP Methods: GET, HEAD, POST, OPTIONS, TRACE 
+</br>+ OSVDB-877: TRACE HTTP TRACE method is active, suggesting the host is vulnerable to XST
+</br>+ GET mod_ssl/2.2.31 OpenSSL/1.0.2h mod_fcgid/2.3.9 mod_wsgi/3.4 Python/2.7.6 PHP/7.4.1 mod_perl/2.0.8 Perl/v5.16.3 - mod_ssl 2.8.7 and lower are vulnerable to a remote buffer overflow which may allow a remote shell. CVE-2002-0082, OSVDB-756.
+</br>+ OSVDB-3268: GET /./: Directory indexing found.
+</br>+ GET /./: Appending '/./' to a directory allows indexing
+</br>+ OSVDB-3268: GET //: Directory indexing found.
+</br>+ GET //: Apache on Red Hat Linux release 9 reveals the root directory listing by default if there is no index page.
+</br>+ OSVDB-3268: GET /%2e/: Directory indexing found.
+</br>+ OSVDB-576: GET /%2e/: Weblogic allows source code or directory listing, upgrade to v6.0 SP1 or higher. BID-2513.
+</br>+ OSVDB-3268: GET ///: Directory indexing found.
+</br>+ OSVDB-119: GET /?PageServices: The remote server may allow directory listings through Web Publisher by forcing the server to show all files via 'open directory browsing'. Web Publisher should be disabled. CVE-1999-0269.
+</br>+ OSVDB-119: GET /?wp-cs-dump: The remote server may allow directory listings through Web Publisher by forcing the server to show all files via 'open directory browsing'. Web Publisher should be disabled. CVE-1999-0269.
+</br>+ OSVDB-3268: GET ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////: Directory indexing found.
+</br>+ OSVDB-3288: GET ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////: Abyss 1.03 reveals directory listing when 	 /'s are requested.
+</br>- Nikto v2.1.6/2.1.5
+</br>+ Target Host: 192.168.1.5
+</br>+ Target Port: 80
+</br>+ GET The anti-clickjacking X-Frame-Options header is not present.
+</br>+ GET The X-XSS-Protection header is not defined. This header can hint to the user agent to protect against some forms of XSS
+</br>+ GET The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type
+</br>+ OSVDB-3268: GET /: Directory indexing found.
+</br>+ HEAD OpenSSL/1.0.2h appears to be outdated (current is at least 1.1.1). OpenSSL 1.0.0o and 0.9.8zc are also current.
+</br>+ HEAD Perl/v5.16.3 appears to be outdated (current is at least v5.20.0)
+</br>+ HEAD Python/2.7.6 appears to be outdated (current is at least 2.7.8)
+</br>+ HEAD mod_ssl/2.2.31 appears to be outdated (current is at least 2.8.31) (may depend on server version)
+</br>+ HEAD Apache/2.2.31 appears to be outdated (current is at least Apache/2.4.37). Apache 2.2.34 is the EOL for the 2.x branch.
+</br>+ HEAD mod_wsgi/3.4 appears to be outdated (current is at least 4.0)
+</br>+ OPTIONS Allowed HTTP Methods: GET, HEAD, POST, OPTIONS, TRACE 
+</br>+ OSVDB-877: TRACE HTTP TRACE method is active, suggesting the host is vulnerable to XST
+</br>+ GET mod_ssl/2.2.31 OpenSSL/1.0.2h mod_fcgid/2.3.9 mod_wsgi/3.4 Python/2.7.6 PHP/7.4.1 mod_perl/2.0.8 Perl/v5.16.3 - mod_ssl 2.8.7 and lower are vulnerable to a remote buffer overflow which may allow a remote shell. CVE-2002-0082, OSVDB-756.
+</br>+ OSVDB-3268: GET /./: Directory indexing found.
+</br>+ GET /./: Appending '/./' to a directory allows indexing
+</br>+ OSVDB-3268: GET //: Directory indexing found.
+</br>+ GET //: Apache on Red Hat Linux release 9 reveals the root directory listing by default if there is no index page.
+</br>+ OSVDB-3268: GET /%2e/: Directory indexing found.
+</br>+ OSVDB-576: GET /%2e/: Weblogic allows source code or directory listing, upgrade to v6.0 SP1 or higher. BID-2513.
+</br>+ OSVDB-3268: GET ///: Directory indexing found.
+</br>+ OSVDB-119: GET /?PageServices: The remote server may allow directory listings through Web Publisher by forcing the server to show all files via 'open directory browsing'. Web Publisher should be disabled. CVE-1999-0269.
+</br>+ OSVDB-119: GET /?wp-cs-dump: The remote server may allow directory listings through Web Publisher by forcing the server to show all files via 'open directory browsing'. Web Publisher should be disabled. CVE-1999-0269.
+</br>+ OSVDB-3268: GET ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////: Directory indexing found.
+</br>+ OSVDB-3288: GET ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////: Abyss 1.03 reveals directory listing when 	 /'s are requested.
+</br>- Nikto v2.1.6/2.1.5
+</br>+ Target Host: 192.168.1.5
+</br>+ Target Port: 80
+</br>+ GET The anti-clickjacking X-Frame-Options header is not present.
+</br>+ GET The X-XSS-Protection header is not defined. This header can hint to the user agent to protect against some forms of XSS
+</br>+ GET The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type
+</br>+ OSVDB-3268: GET /: Directory indexing found.
+</br>+ HEAD mod_ssl/2.2.31 appears to be outdated (current is at least 2.8.31) (may depend on server version)
+</br>+ HEAD Perl/v5.16.3 appears to be outdated (current is at least v5.20.0)
+</br>+ HEAD OpenSSL/1.0.2h appears to be outdated (current is at least 1.1.1). OpenSSL 1.0.0o and 0.9.8zc are also current.
+</br>+ HEAD Apache/2.2.31 appears to be outdated (current is at least Apache/2.4.37). Apache 2.2.34 is the EOL for the 2.x branch.
+</br>+ HEAD mod_wsgi/3.4 appears to be outdated (current is at least 4.0)
+</br>+ HEAD Python/2.7.6 appears to be outdated (current is at least 2.7.8)
+</br>+ OPTIONS Allowed HTTP Methods: GET, HEAD, POST, OPTIONS, TRACE 
+</br>+ OSVDB-877: TRACE HTTP TRACE method is active, suggesting the host is vulnerable to XST
+</br>+ GET mod_ssl/2.2.31 OpenSSL/1.0.2h mod_fcgid/2.3.9 mod_wsgi/3.4 Python/2.7.6 PHP/7.4.1 mod_perl/2.0.8 Perl/v5.16.3 - mod_ssl 2.8.7 and lower are vulnerable to a remote buffer overflow which may allow a remote shell. CVE-2002-0082, OSVDB-756.
+</br>+ OSVDB-3268: GET /./: Directory indexing found.
+</br>+ GET /./: Appending '/./' to a directory allows indexing
+</br>+ OSVDB-3268: GET //: Directory indexing found.
+</br>+ GET //: Apache on Red Hat Linux release 9 reveals the root directory listing by default if there is no index page.
+</br>+ OSVDB-3268: GET /%2e/: Directory indexing found.
+</br>+ OSVDB-576: GET /%2e/: Weblogic allows source code or directory listing, upgrade to v6.0 SP1 or higher. BID-2513.
+</br>+ OSVDB-3268: GET ///: Directory indexing found.
+</br>+ OSVDB-119: GET /?PageServices: The remote server may allow directory listings through Web Publisher by forcing the server to show all files via 'open directory browsing'. Web Publisher should be disabled. CVE-1999-0269.
+</br>+ OSVDB-119: GET /?wp-cs-dump: The remote server may allow directory listings through Web Publisher by forcing the server to show all files via 'open directory browsing'. Web Publisher should be disabled. CVE-1999-0269.
+</br>+ OSVDB-3268: GET ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////: Directory indexing found.
+</br>+ OSVDB-3288: GET ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////: Abyss 1.03 reveals directory listing when 	 /'s are requested.
+</br>- Nikto v2.1.6/2.1.5
+</br>+ Target Host: 192.168.1.5
+</br>+ Target Port: 80
+</br>+ GET The anti-clickjacking X-Frame-Options header is not present.
+</br>+ GET The X-XSS-Protection header is not defined. This header can hint to the user agent to protect against some forms of XSS
+</br>+ GET The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type
+</br>+ OSVDB-3268: GET /: Directory indexing found.
+</br>+ HEAD Python/2.7.6 appears to be outdated (current is at least 2.7.8)
+</br>+ HEAD Perl/v5.16.3 appears to be outdated (current is at least v5.20.0)
+</br>+ HEAD mod_ssl/2.2.31 appears to be outdated (current is at least 2.8.31) (may depend on server version)
+</br>+ HEAD OpenSSL/1.0.2h appears to be outdated (current is at least 1.1.1). OpenSSL 1.0.0o and 0.9.8zc are also current.
+</br>+ HEAD mod_wsgi/3.4 appears to be outdated (current is at least 4.0)
+</br>+ HEAD Apache/2.2.31 appears to be outdated (current is at least Apache/2.4.37). Apache 2.2.34 is the EOL for the 2.x branch.
+</br>+ OPTIONS Allowed HTTP Methods: GET, HEAD, POST, OPTIONS, TRACE 
+</br>+ OSVDB-877: TRACE HTTP TRACE method is active, suggesting the host is vulnerable to XST
+</br>+ GET mod_ssl/2.2.31 OpenSSL/1.0.2h mod_fcgid/2.3.9 mod_wsgi/3.4 Python/2.7.6 PHP/7.4.1 mod_perl/2.0.8 Perl/v5.16.3 - mod_ssl 2.8.7 and lower are vulnerable to a remote buffer overflow which may allow a remote shell. CVE-2002-0082, OSVDB-756.
+</br>- Nikto v2.1.6/2.1.5
+</br>+ Target Host: 192.168.1.5
+</br>+ Target Port: 80
+</br>+ GET The anti-clickjacking X-Frame-Options header is not present.
+</br>+ GET The X-XSS-Protection header is not defined. This header can hint to the user agent to protect against some forms of XSS
+</br>+ GET The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type
+</br>+ OSVDB-3268: GET /: Directory indexing found.
+</br>+ HEAD Perl/v5.16.3 appears to be outdated (current is at least v5.20.0)
+</br>+ HEAD mod_ssl/2.2.31 appears to be outdated (current is at least 2.8.31) (may depend on server version)
+</br>+ HEAD mod_wsgi/3.4 appears to be outdated (current is at least 4.0)
+</br>+ HEAD Python/2.7.6 appears to be outdated (current is at least 2.7.8)
+</br>+ HEAD Apache/2.2.31 appears to be outdated (current is at least Apache/2.4.37). Apache 2.2.34 is the EOL for the 2.x branch.
+</br>+ HEAD OpenSSL/1.0.2h appears to be outdated (current is at least 1.1.1). OpenSSL 1.0.0o and 0.9.8zc are also current.
+</br>+ OPTIONS Allowed HTTP Methods: GET, HEAD, POST, OPTIONS, TRACE 
+</br>+ OSVDB-877: TRACE HTTP TRACE method is active, suggesting the host is vulnerable to XST
+</br>+ GET mod_ssl/2.2.31 OpenSSL/1.0.2h mod_fcgid/2.3.9 mod_wsgi/3.4 Python/2.7.6 PHP/7.4.1 mod_perl/2.0.8 Perl/v5.16.3 - mod_ssl 2.8.7 and lower are vulnerable to a remote buffer overflow which may allow a remote shell. CVE-2002-0082, OSVDB-756.
+</br>+ OSVDB-3268: GET /./: Directory indexing found.
+</br>+ GET /./: Appending '/./' to a directory allows indexing
+</br>+ OSVDB-3268: GET //: Directory indexing found.
+</br>+ GET //: Apache on Red Hat Linux release 9 reveals the root directory listing by default if there is no index page.
+</br>+ OSVDB-3268: GET /%2e/: Directory indexing found.
+</br>+ OSVDB-576: GET /%2e/: Weblogic allows source code or directory listing, upgrade to v6.0 SP1 or higher. BID-2513.
+</br>+ OSVDB-3268: GET ///: Directory indexing found.
+</br>+ OSVDB-119: GET /?PageServices: The remote server may allow directory listings through Web Publisher by forcing the server to show all files via 'open directory browsing'. Web Publisher should be disabled. CVE-1999-0269.
+</br>+ OSVDB-119: GET /?wp-cs-dump: The remote server may allow directory listings through Web Publisher by forcing the server to show all files via 'open directory browsing'. Web Publisher should be disabled. CVE-1999-0269.
+</br>+ OSVDB-3268: GET ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////: Directory indexing found.
+</br>+ OSVDB-3288: GET ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////: Abyss 1.03 reveals directory listing when 	 /'s are requested.
+</br>- Nikto v2.1.6/2.1.5
+</br>+ Target Host: 192.168.1.5
+</br>+ Target Port: 80
+</br>+ GET The anti-clickjacking X-Frame-Options header is not present.
+</br>+ GET The X-XSS-Protection header is not defined. This header can hint to the user agent to protect against some forms of XSS
+</br>+ GET The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type
+</br>+ OSVDB-3268: GET /: Directory indexing found.
+</br>+ HEAD mod_ssl/2.2.31 appears to be outdated (current is at least 2.8.31) (may depend on server version)
+</br>+ HEAD mod_wsgi/3.4 appears to be outdated (current is at least 4.0)
+</br>+ HEAD Perl/v5.16.3 appears to be outdated (current is at least v5.20.0)
+</br>+ HEAD Apache/2.2.31 appears to be outdated (current is at least Apache/2.4.37). Apache 2.2.34 is the EOL for the 2.x branch.
+</br>+ HEAD Python/2.7.6 appears to be outdated (current is at least 2.7.8)
+</br>+ HEAD OpenSSL/1.0.2h appears to be outdated (current is at least 1.1.1). OpenSSL 1.0.0o and 0.9.8zc are also current.
+</br>+ OPTIONS Allowed HTTP Methods: GET, HEAD, POST, OPTIONS, TRACE 
+</br>+ OSVDB-877: TRACE HTTP TRACE method is active, suggesting the host is vulnerable to XST
+</br>+ GET mod_ssl/2.2.31 OpenSSL/1.0.2h mod_fcgid/2.3.9 mod_wsgi/3.4 Python/2.7.6 PHP/7.4.1 mod_perl/2.0.8 Perl/v5.16.3 - mod_ssl 2.8.7 and lower are vulnerable to a remote buffer overflow which may allow a remote shell. CVE-2002-0082, OSVDB-756.
+</br>- Nikto v2.1.6/2.1.5
+</br>+ Target Host: 192.168.1.5
+</br>+ Target Port: 80
+</br>+ GET The anti-clickjacking X-Frame-Options header is not present.
+</br>+ GET The X-XSS-Protection header is not defined. This header can hint to the user agent to protect against some forms of XSS
+</br>+ GET The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type
+</br>+ OSVDB-3268: GET /: Directory indexing found.
+</br>+ HEAD Python/2.7.6 appears to be outdated (current is at least 2.7.8)
+</br>+ HEAD Perl/v5.16.3 appears to be outdated (current is at least v5.20.0)
+</br>+ HEAD mod_ssl/2.2.31 appears to be outdated (current is at least 2.8.31) (may depend on server version)
+</br>+ HEAD Apache/2.2.31 appears to be outdated (current is at least Apache/2.4.37). Apache 2.2.34 is the EOL for the 2.x branch.
+</br>+ HEAD OpenSSL/1.0.2h appears to be outdated (current is at least 1.1.1). OpenSSL 1.0.0o and 0.9.8zc are also current.
+</br>+ HEAD mod_wsgi/3.4 appears to be outdated (current is at least 4.0)
+</br>+ OPTIONS Allowed HTTP Methods: GET, HEAD, POST, OPTIONS, TRACE 
+</br>+ OSVDB-877: TRACE HTTP TRACE method is active, suggesting the host is vulnerable to XST
+</br>+ GET mod_ssl/2.2.31 OpenSSL/1.0.2h mod_fcgid/2.3.9 mod_wsgi/3.4 Python/2.7.6 PHP/7.4.1 mod_perl/2.0.8 Perl/v5.16.3 - mod_ssl 2.8.7 and lower are vulnerable to a remote buffer overflow which may allow a remote shell. CVE-2002-0082, OSVDB-756.
+</br>- Nikto v2.1.6/2.1.5
 </br> </body> 
 </html

@@ -59,33 +59,29 @@
 
 
          <label for="niktoOptions">Choose your Nikto's options</label>
-           <div class="form-check" name="niktoOptions1">
-             <input class="form-check-input" type="checkbox" id="niktoFirstOption" value="1,2">
-             <label class="form-check-label" for="niktoFirstOption">Interesting File / Seen in logs & Misconfiguration / Default File</label>
-           </div>
-           <div class="form-check" name="niktoOptions2">
-             <input class="form-check-input" type="checkbox" id="niktoSecondOption" value="3,4">
-             <label class="form-check-label" for="niktoSecondOption">Information Disclosure & Injection (XSS/Script/HTML)</label>
+           <div class="form-check">
+             <input class="form-check-input" type="checkbox" name="niktoOptions1" value="123456789abcd">
+             <label class="form-check-label">Lite Scan</label>
            </div>
            <div class="form-check">
-             <input class="form-check-input" type="checkbox" id="niktoThirdOption" value="5,6">
-             <label class="form-check-label" for="niktoThirdOption">Remote File Retrieval - Inside Web Root & Denial of Service</label>
+             <input class="form-check-input" type="checkbox" name="niktoOptions2" value="">
+             <label class="form-check-label">Full Scan</label>
            </div>
            <div class="form-check">
-             <input class="form-check-input" type="checkbox" id="niktoFourthOption" value="7,8">
-             <label class="form-check-label" for="niktoFourthOption">Remote File Retrieval - Server Wide & Command Execution / Remote Shell</label>
+             <input class="form-check-input" type="checkbox" name="niktoOptions3" value="-ssl">
+             <label class="form-check-label">Enable SSL mode</label>
            </div>
            <div class="form-check">
-             <input class="form-check-input" type="checkbox" id="niktoFifthOption" value="9,0">
-             <label class="form-check-label" for="niktoFifthOption">SQL Injection & File Upload</label>
+             <input class="form-check-input" type="checkbox" name="niktoOptions4" value="-nossl">
+             <label class="form-check-label">Disable SSL mode</label>
            </div>
            <div class="form-check">
-             <input class="form-check-input" type="checkbox" id="niktoSixthOption" value="a,b,c">
-             <label class="form-check-label" for="niktoSixthOption">Authentication Bypass & Software Identification & Remote Source Inclusion</label>
+             <input class="form-check-input" type="checkbox" name="niktoOptions5" value="60s">
+             <label class="form-check-label" for="niktoOptions5">Maximum time for the test : 60s</label>
            </div>
            <div class="form-check">
-             <input class="form-check-input" type="checkbox" id="niktoSeventhOption" value="x">
-             <label class="form-check-label" for="niktoSeventhOption">Check Everything</label>
+             <input class="form-check-input" type="checkbox" name="niktoOptions6" value="5min">
+             <label class="form-check-label" for="niktoOptions6">Maximum time for the test : 5min</label>
            </div>
            <div>
              <h10>You can find the link of Nikto here : <a href="https://github.com/sullo/nikto">Nikto</a></h10>
@@ -94,7 +90,10 @@
         <div class="pt-3">
           <h4>Wapiti's Options</h4>
         </div>
-
+        <p>Wapiti allows you to audit the security of your web applications.It performs "black-box" scans, i.e. it does not study the source code of
+          the application but will scans the webpages of the deployed webapp, looking for scripts and forms where it can inject data.Once it gets this list,
+          Wapiti acts like a fuzzer, injecting payloads to see if a script is vulnerable.
+        </p>
         <div>
           <h3 class="border-bottom">Launch The Scan</h3>
           <div class="row justify-content-center align-items-center">

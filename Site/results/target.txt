@@ -1,2 +1,0 @@
-http://icehw.net:80/phpmyadmin
-http://icehw.net:80/robots.txt
