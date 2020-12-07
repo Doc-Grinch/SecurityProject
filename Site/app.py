@@ -1,5 +1,5 @@
 from bottle import Bottle, run, static_file, template, request #Allow to use Bottle functions
-import os, sys, webbrowser
+import os, sys, webbrowser, re
 from pprint import pprint                                   #Allow to interact with the system
 import subprocess                                              #Allow to use system commands
 from subprocess import PIPE
@@ -43,6 +43,15 @@ def testURL():
     tV4 = request.forms.niktoOptions4
     tV5 = request.forms.niktoOptions5
     tV6 = request.forms.niktoOptions6
+    #Wapiti's Options
+    wo1 = request.forms.wapitiOption1
+    wo2 = request.forms.wapitiOption2
+    wo3 = request.forms.wapitiOption3
+    wo4 = request.forms.wapitiOption4
+    wo5 = request.forms.wapitiOption5
+    wo6 = request.forms.wapitiOption6
+    wapitiAllOptions = wo1+','+wo2+','+wo3+','+wo4+','+wo5+','+wo6
+
 
     if not testedURL:
         return "Veuillez entrer une URL"
@@ -74,9 +83,9 @@ def testURL():
 
     filename = 'http://localhost:8080/vuln1'
     webbrowser.open(filename)
-    #
-    wapitiResult = subprocess.run(['sudo', 'wapiti', '-u', testedURL, '-o', ROOT_PATH + '/results/wapitiResult.txt', '-f', 'txt', '-v', '1'])
 
+    wapitiResult = subprocess.run(['sudo', 'wapiti', '-u', testedURL, '-m', wapitiAllOptions, '-o', ROOT_PATH + '/results/wapitiResult.txt', '-f', 'txt', '-v', '1'])
+    print(wo1,wo2)
     with open('results/wapitiResult.txt', 'r') as readFile:
         with open('views/vuln2.html','w') as writeFile:
             writeFile.write("%rebase('base.tpl')\n")
@@ -87,9 +96,11 @@ def testURL():
 
     filename = 'http://localhost:8080/vuln2'
     webbrowser.open(filename)
+    print("HEY")
+    print(wapitiResult)
 
 
-#Pour passer les arguments à une autre commande : result2 = subprocess(['grep', '-n', 'index.html'], capture_output=True, text=true, input=result.output)
+# Pour passer les arguments à une autre commande : result2 = subprocess(['grep', '-n', 'index.html'], capture_output=True, text=true, input=result.output)
 
 
 run(app, host='localhost', reloader=True, debug=True, port=8080)
