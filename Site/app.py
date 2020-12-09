@@ -32,6 +32,7 @@ def showScann():
 
 @app.route('/scan', method='POST')                             #Define crawler instructions, datas from the form and the output
 def testURL():
+
     #URL
     testedURL = request.forms.testedURL
     #Wordlist to use
@@ -63,36 +64,35 @@ def testURL():
     with open('results/target.txt', 'r') as readFile:
         with open('views/scanner.html','w') as writeFile:
             writeFile.write("%rebase('baseScanner.tpl')\n")
-            writeFile.write("<h2>Dirsearch's results</h2>")
+            writeFile.write("<h2>Dirsearch's results</h2> \n")
             for line in readFile:
                 writeFile.write(line)
-                writeFile.write('</br>')
+                writeFile.write('  </br>')
 
     niktoResults = subprocess.run(['sudo', 'nikto', '-host', testedURL, '-Tuning', tV1, tV2, '-maxtime', tV5, tV6, '-ask', 'no', tV3, tV4, '-output', ROOT_PATH + '/results/niktoResult.txt'])
 
     with open('results/niktoResult.txt', 'r') as readFile:
         with open('views/scanner.html','a') as writeFile:
-            writeFile.write("<h2>Nikto's results</h2>")
+            writeFile.write("<h2>Nikto's results</h2> \n")
             for line in readFile:
                 writeFile.write(line)
-                writeFile.write('</br>')
+                writeFile.write('  </br>')
 
-    wapitiResult = subprocess.run(['sudo', 'wapiti', '-u', testedURL, '-m', wapitiAllOptions,'--flush-attacks', '-o', ROOT_PATH + '/results/wapitiResult.txt', '-f', 'txt', '-v', '1'])
-    print(wo1,wo2)
+    wapitiResult = subprocess.run(['sudo', 'wapiti', '-u', testedURL, '--flush-session', '-o', ROOT_PATH + '/results/wapitiResult.txt', '-f', 'txt', '-v', '1','-m', wapitiAllOptions]) 
+
     with open('results/wapitiResult.txt', 'r') as readFile:
         with open('views/scanner.html','a') as writeFile:
-            writeFile.write("<h2>Wapiti's results</h2>")
+            writeFile.write("<h2>Wapiti's results</h2> \n")
             for line in readFile:
                 writeFile.write(line)
-                writeFile.write('</br>')
-            writeFile.write("</div> \n </body> \n</html>")
-
-    filename = 'http://localhost:8080/scanner'
-    webbrowser.open(filename)
+                writeFile.write('  </br>')
+            writeFile.write("\n  </div> \n </body> \n</html>")
 
     os.remove("/home/bobby/ProjetSécu/securityProject/Site/results/niktoResult.txt")
     os.remove("/home/bobby/ProjetSécu/securityProject/Site/results/target.txt")
     os.remove("/home/bobby/ProjetSécu/securityProject/Site/results/wapitiResult.txt")
+
+    return template("views/scanner.html")
 
 # Pour passer les arguments à une autre commande : result2 = subprocess(['grep', '-n', 'index.html'], capture_output=True, text=true, input=result.output)
 
