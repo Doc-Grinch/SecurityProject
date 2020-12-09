@@ -57,48 +57,42 @@ def testURL():
         return "Veuillez entrer une URL"
 
     result = subprocess.run(['sudo', '../dirsearch/dirsearch.py', '-u', testedURL, '-e', 'php,html,txt', '-w', #Scanning with Dirsearch, using a
-     ROOT_PATH + usedWordlist, '--simple-report', 'results/target.txt'])                                       #wordlist choosen by the suer and create a simple ouput
+     ROOT_PATH + usedWordlist, '--simple-report', 'results/target.txt'])                                       #wordlist choosen by the user and create a simple ouput
                                                                                                                #in results/target.txt
 
     with open('results/target.txt', 'r') as readFile:
         with open('views/scanner.html','w') as writeFile:
-            writeFile.write("%rebase('base.tpl')\n")
+            writeFile.write("%rebase('baseScanner.tpl')\n")
+            writeFile.write("<h2>Dirsearch's results</h2>")
             for line in readFile:
                 writeFile.write(line)
                 writeFile.write('</br>')
-            writeFile.write(" </body> \n</html")
+
+    niktoResults = subprocess.run(['sudo', 'nikto', '-host', testedURL, '-Tuning', tV1, tV2, '-maxtime', tV5, tV6, '-ask', 'no', tV3, tV4, '-output', ROOT_PATH + '/results/niktoResult.txt'])
+
+    with open('results/niktoResult.txt', 'r') as readFile:
+        with open('views/scanner.html','a') as writeFile:
+            writeFile.write("<h2>Nikto's results</h2>")
+            for line in readFile:
+                writeFile.write(line)
+                writeFile.write('</br>')
+
+    wapitiResult = subprocess.run(['sudo', 'wapiti', '-u', testedURL, '-m', wapitiAllOptions,'--flush-attacks', '-o', ROOT_PATH + '/results/wapitiResult.txt', '-f', 'txt', '-v', '1'])
+    print(wo1,wo2)
+    with open('results/wapitiResult.txt', 'r') as readFile:
+        with open('views/scanner.html','a') as writeFile:
+            writeFile.write("<h2>Wapiti's results</h2>")
+            for line in readFile:
+                writeFile.write(line)
+                writeFile.write('</br>')
+            writeFile.write("</div> \n </body> \n</html>")
 
     filename = 'http://localhost:8080/scanner'
     webbrowser.open(filename)
 
-    niktoResults = subprocess.run(['sudo', 'nikto', '-host', testedURL, '-output', ROOT_PATH + '/results/niktoResult.txt', '-Tuning', tV1, tV2, '-maxtime', tV5, tV6, '-ask', 'no', tV3, tV4])
-
-    with open('results/niktoResult.txt', 'r') as readFile:
-        with open('views/vuln1.html','w') as writeFile:
-            writeFile.write("%rebase('base.tpl')\n")
-            for line in readFile:
-                writeFile.write(line)
-                writeFile.write('</br>')
-            writeFile.write(" </body> \n</html")
-
-    filename = 'http://localhost:8080/vuln1'
-    webbrowser.open(filename)
-
-    wapitiResult = subprocess.run(['sudo', 'wapiti', '-u', testedURL, '-m', wapitiAllOptions, '-o', ROOT_PATH + '/results/wapitiResult.txt', '-f', 'txt', '-v', '1'])
-    print(wo1,wo2)
-    with open('results/wapitiResult.txt', 'r') as readFile:
-        with open('views/vuln2.html','w') as writeFile:
-            writeFile.write("%rebase('base.tpl')\n")
-            for line in readFile:
-                writeFile.write(line)
-                writeFile.write('</br>')
-            writeFile.write(" </body> \n</html")
-
-    filename = 'http://localhost:8080/vuln2'
-    webbrowser.open(filename)
-    print("HEY")
-    print(wapitiResult)
-
+    os.remove("/home/bobby/ProjetSécu/securityProject/Site/results/niktoResult.txt")
+    os.remove("/home/bobby/ProjetSécu/securityProject/Site/results/target.txt")
+    os.remove("/home/bobby/ProjetSécu/securityProject/Site/results/wapitiResult.txt")
 
 # Pour passer les arguments à une autre commande : result2 = subprocess(['grep', '-n', 'index.html'], capture_output=True, text=true, input=result.output)
 
