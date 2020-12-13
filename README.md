@@ -17,13 +17,13 @@ Type this command to run the bottle webserver : "python3 app.py".
 You can now access the scanner directly from a browser with : http://localhost:8080
 Differents options are available for a scan:
 
-<h2>-1 For Dirsearch</h2>, you shoul specify a wordlist to crawl the tested website, the bigger the wordlist is the longer the scan well be. If you want to modify a wordlist, go into the root folder and add some stuff in filsNdirs.wordlist (the medium option in the scanner).
+<h2>-1 For Dirsearch</h2> You shoul specify a wordlist to crawl the tested website, the bigger the wordlist is the longer the scan well be. If you want to modify a wordlist, go into the root folder and add some stuff in filsNdirs.wordlist (the medium option in the scanner).
 
-<h2>-2 For Nikto</h2>, the same pattern is designed. The option lite/full scan depend of the time and how deep you want to pass in the scan.
+<h2>-2 For Nikto</h2> The same pattern is designed. The option lite/full scan depend of the time and how deep you want to pass in the scan.
 Check Enable SSL for https websites or Disable for http websites.
 The last options allow you to add a timeout.
 
-<h2>-3 The Wapiti's options</h2> will ask you to check the vulnerabilities you want to test.
+<h2>-3 The Wapiti's options</h2> It will ask you to check the vulnerabilities you want to test.
 For more informations about the tools used, please refer to the link on the scanner page.
 
 Finnaly, input the url of the website to test in the input part.
