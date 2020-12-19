@@ -2,14 +2,17 @@
 WebVulnerabilitiesScanner
 
 <h1>Foreword</h1>
-The purpose of this scanner is to help you analysing you website in order to show the different problems regarding the security of it, and to correct it.
+The purpose of this scanner is to help you analysing you website in order to show the different problems regarding the security of it.
 We are using different tools like Nikto, Wapiti, dirsearch to scan the files and configurations of your web application.
+Due to the age of Nikto, take in consideration that you may have some false positives after scanning.
 We are not responsible of the actions you are doing with this script and encourage you to only scan your websites.
 
 <h1>Requirements</h1>
 This script uses differents other script to work.
 We recommand you to use Kali Linux to lauch it, beacause tools used like Nikto, Wapiti and Python3 are already installed.
-If you are uysing an other Linux distribution, you may dowload and install these tools.
+If you are using an other Linux distribution, you may dowload and install these tools.
+Regarding Dirsearch, you will need to clone the repository : https://github.com/maurosoria/dirsearch at the root of the securityProject folder.
+The command is :"cd securityProject && git clone https://github.com/maurosoria/dirsearch", after that done, please replace the default.conf file by the one of the securityProject.
 
 <h1>Usage</h1>
 Once you have download the scanner, you may go in its directory and open a shell.

