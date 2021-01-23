@@ -1,35 +1,36 @@
 %rebase('baseScanner.tpl')
 <h2>Dirsearch's results</h2> 
-http://192.168.1.5:80/TestSiteBoots/images
-  </br>http://192.168.1.5:80/TestSiteBoots/Images
-  </br>http://192.168.1.5:80/TestSiteBoots/index.php
-  </br>http://192.168.1.5:80/TestSiteBoots/footer.php
-  </br>http://192.168.1.5:80/TestSiteBoots/config.php
-  </br>http://192.168.1.5:80/TestSiteBoots/images/
-  </br>http://192.168.1.5:80/TestSiteBoots/index.php/
+http://192.168.1.99:80/TestSiteBoots/images
+  </br>http://192.168.1.99:80/TestSiteBoots/Images
+  </br>http://192.168.1.99:80/TestSiteBoots/config.php
+  </br>http://192.168.1.99:80/TestSiteBoots/footer.php
+  </br>http://192.168.1.99:80/TestSiteBoots/index.php
+  </br>http://192.168.1.99:80/TestSiteBoots/images/
   </br><h2>Nikto's results</h2> 
 - Nikto v2.1.6/2.1.5
-  </br>+ Target Host: 192.168.1.5
+  </br>+ Target Host: 192.168.1.99
   </br>+ Target Port: 80
+  </br>+ GET Cookie PHPSESSID created without the httponly flag
   </br>+ GET Retrieved x-powered-by header: PHP/7.4.1
   </br>+ GET The anti-clickjacking X-Frame-Options header is not present.
   </br>+ GET The X-XSS-Protection header is not defined. This header can hint to the user agent to protect against some forms of XSS
   </br>+ GET The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type
-  </br>+ GET Cookie PHPSESSID created without the httponly flag
-  </br>+ HEAD /TestSiteBoots: mod_wsgi/3.4 appears to be outdated (current is at least 4.0)
+  </br>+ HEAD /TestSiteBoots: OpenSSL/1.0.2h appears to be outdated (current is at least 1.1.1). OpenSSL 1.0.0o and 0.9.8zc are also current.
   </br>+ HEAD /TestSiteBoots: Python/2.7.6 appears to be outdated (current is at least 2.7.8)
+  </br>+ HEAD /TestSiteBoots: mod_wsgi/3.4 appears to be outdated (current is at least 4.0)
+  </br>+ HEAD /TestSiteBoots: mod_ssl/2.2.31 appears to be outdated (current is at least 2.8.31) (may depend on server version)
   </br>+ HEAD /TestSiteBoots: Perl/v5.16.3 appears to be outdated (current is at least v5.20.0)
   </br>+ HEAD /TestSiteBoots: Apache/2.2.31 appears to be outdated (current is at least Apache/2.4.37). Apache 2.2.34 is the EOL for the 2.x branch.
-  </br>+ HEAD /TestSiteBoots: mod_ssl/2.2.31 appears to be outdated (current is at least 2.8.31) (may depend on server version)
-  </br>+ HEAD /TestSiteBoots: OpenSSL/1.0.2h appears to be outdated (current is at least 1.1.1). OpenSSL 1.0.0o and 0.9.8zc are also current.
-  </br>+ GET /TestSiteBoots: mod_ssl/2.2.31 OpenSSL/1.0.2h mod_fcgid/2.3.9 mod_wsgi/3.4 Python/2.7.6 PHP/7.4.1 mod_perl/2.0.8 Perl/v5.16.3 - mod_ssl 2.8.7 and lower are vulnerable to a remote buffer overflow which may allow a remote shell. CVE-2002-0082, OSVDB-756.
-  </br>+ DCLXZJYY Web Server returns a valid response with junk HTTP methods, this may cause false positives.
+  </br>+ UYUSPVDQ Web Server returns a valid response with junk HTTP methods, this may cause false positives.
   </br>+ OSVDB-877: TRACE HTTP TRACE method is active, suggesting the host is vulnerable to XST
+  </br>+ GET /TestSiteBoots: mod_ssl/2.2.31 OpenSSL/1.0.2h mod_fcgid/2.3.9 mod_wsgi/3.4 Python/2.7.6 PHP/7.4.1 mod_perl/2.0.8 Perl/v5.16.3 - mod_ssl 2.8.7 and lower are vulnerable to a remote buffer overflow which may allow a remote shell. CVE-2002-0082, OSVDB-756.
+  </br>+ GET /TestSiteBoots/config.php: PHP Config file may contain database IDs and passwords.
+  </br>+ OSVDB-3268: GET /TestSiteBoots/images/: Directory indexing found.
   </br><h2>Wapiti's results</h2> 
 ********************************************************************************
   </br>                     Wapiti 3.0.3 - wapiti.sourceforge.io
-  </br>                Rapport pour http://192.168.1.5/TestSiteBoots/
-  </br>                Date du scan : Thu, 07 Jan 2021 15:37:42 +0000
+  </br>                Rapport pour http://192.168.1.99/TestSiteBoots/
+  </br>                Date du scan : Fri, 22 Jan 2021 20:30:22 +0000
   </br>                          Portée de ce scan : folder
   </br>********************************************************************************
   </br>
@@ -38,7 +39,7 @@ http://192.168.1.5:80/TestSiteBoots/images
   </br>                                                            Injection SQL :   0
   </br>                                                 Injection SQL en aveugle :   0
   </br>                                                   Divulgation de fichier :   0
-  </br>                                                     Cross Site Scripting :   3
+  </br>                                                     Cross Site Scripting :   0
   </br>                                                           Injection CRLF :   0
   </br>                                                   Exécution de commandes :   0
   </br>                                                Contournement de htaccess :   0
@@ -47,46 +48,6 @@ http://192.168.1.5:80/TestSiteBoots/images
   </br>                                              Server Side Request Forgery :   0
   </br>                                                            Open Redirect :   0
   </br>                                                                      XXE :   0
-  </br>********************************************************************************
-  </br>
-  </br>Cross Site Scripting
-  </br>--------------------
-  </br>Faille XSS trouvée via l'injection dans le paramètre mail
-  </br>Evil request:
-  </br>    POST /TestSiteBoots/config.php HTTP/1.1
-  </br>    Host: 192.168.1.5
-  </br>    Referer: http://192.168.1.5/TestSiteBoots/registerUser.php
-  </br>    Content-Type: application/x-www-form-urlencoded
-  </br>
-  </br>    mail=%3CScRiPt%3Ealert%28%27wj5p9qb78q%27%29%3C%2FsCrIpT%3E&pseudo=default&pwd=Letm3in_
-  </br>PoC en commande cURL : "curl "http://192.168.1.5/TestSiteBoots/config.php" -e "http://192.168.1.5/TestSiteBoots/registerUser.php" -d "mail=%3CScRiPt%3Ealert%28%27wj5p9qb78q%27%29%3C%2FsCrIpT%3E&pseudo=default&pwd=Letm3in_""
-  </br>
-  </br>                                  *   *   *
-  </br>
-  </br>Faille XSS trouvée via l'injection dans le paramètre pseudo
-  </br>Evil request:
-  </br>    POST /TestSiteBoots/config.php HTTP/1.1
-  </br>    Host: 192.168.1.5
-  </br>    Referer: http://192.168.1.5/TestSiteBoots/registerUser.php
-  </br>    Content-Type: application/x-www-form-urlencoded
-  </br>
-  </br>    mail=wapiti2019%40mailinator.com&pseudo=%3CScRiPt%3Ealert%28%27w0l12jzqva%27%29%3C%2FsCrIpT%3E&pwd=Letm3in_
-  </br>PoC en commande cURL : "curl "http://192.168.1.5/TestSiteBoots/config.php" -e "http://192.168.1.5/TestSiteBoots/registerUser.php" -d "mail=wapiti2019%40mailinator.com&pseudo=%3CScRiPt%3Ealert%28%27w0l12jzqva%27%29%3C%2FsCrIpT%3E&pwd=Letm3in_""
-  </br>
-  </br>                                  *   *   *
-  </br>
-  </br>Faille XSS trouvée via l'injection dans le paramètre pwd
-  </br>Evil request:
-  </br>    POST /TestSiteBoots/config.php HTTP/1.1
-  </br>    Host: 192.168.1.5
-  </br>    Referer: http://192.168.1.5/TestSiteBoots/registerUser.php
-  </br>    Content-Type: application/x-www-form-urlencoded
-  </br>
-  </br>    mail=wapiti2019%40mailinator.com&pseudo=default&pwd=%3CScRiPt%3Ealert%28%27wjuyun75u0%27%29%3C%2FsCrIpT%3E
-  </br>PoC en commande cURL : "curl "http://192.168.1.5/TestSiteBoots/config.php" -e "http://192.168.1.5/TestSiteBoots/registerUser.php" -d "mail=wapiti2019%40mailinator.com&pseudo=default&pwd=%3CScRiPt%3Ealert%28%27wjuyun75u0%27%29%3C%2FsCrIpT%3E""
-  </br>
-  </br>                                  *   *   *
-  </br>
   </br>********************************************************************************
   </br>
   </br>Résumé des anomalies :

@@ -33,20 +33,18 @@
          brute-force techniques and nice output.
        </p>
        <form method="POST" action="/scan" class="">
-         <label for="wordlistSelection">Choose your wordlist</label>
-         <div class="dropdown pb-2">
+         <label for="wordlistSelection">Choose your wordlist, the recursivity and the extensions</label>
+         <div class="dropdown pb-2 pl-3">
            <select class="btn-group" role="group" name="usedWordlist" id="wordlistSelection">
              <option type="button" class="btn btn-secondary" value="/one.txt">Lite wordlist</option>
              <option type="button" class="btn btn-secondary" value="/filesNdirs.wordlist" selected>Medium wordlist</option>
              <option type="button" class="btn btn-secondary" value="/directory-list-lowercase-2.3-big.txt">Big wordlist</option>
            </select>
           </div>
-          <div class="form-check pb-2">
-              <input class="form-check-input" type="checkbox" name="dirsearchOption1" value="-r">
-              <label class="form-check-label">
-                Recursive ?
-              </label>
-           </div>
+          <div class="input-group col-lg-3 pb-2">
+            <input type="text" class="form-control" required="required" name="dirsearchOption1" placeholder="4">
+            <span class="input-group-text">Recursivity Depth</span>
+          </div>
            <div class="input-group col-lg-3 pb-2">
              <input type="text" class="form-control" required="required" name="dirsearchOption2" placeholder="php,html">
              <span class="input-group-text">Extensions</span>
@@ -70,28 +68,22 @@
 
 
          <label for="niktoOptions">Choose your Nikto's options</label>
-           <div class="form-check">
-               <input class="form-check-input" type="checkbox" name="niktoOptions1" value="123456789abcd">
-               <label class="form-check-label">
-                 Lite Scan
-               </label>
-            </div>
-           <div class="form-check">
-             <input class="form-check-input" type="checkbox" name="niktoOptions2" value="">
-             <label class="form-check-label">
-               Full Scan
-             </label>
-           </div>
+         <div class="form-check">
+           <input class="form-check-input" type="radio" name="niktoOptions1" id="flexRadioDefault1" checked value="123456789abcd">
+           <label class="form-check-label" for="flexRadioDefault1">
+             Lite Scan
+           </label>
+         </div>
+         <div class="form-check">
+           <input class="form-check-input" type="radio" name="niktoOptions1" id="flexRadioDefault2" value="">
+           <label class="form-check-label" for="flexRadioDefault2">
+             Full Scan
+           </label>
+         </div>
            <div class="form-check">
              <input class="form-check-input" type="checkbox" name="niktoOptions3" value="-ssl">
              <label class="form-check-label">
                Enable SSL mode
-             </label>
-           </div>
-           <div class="form-check">
-             <input class="form-check-input" type="checkbox" name="niktoOptions4" value="-nossl">
-             <label class="form-check-label">
-               Disable SSL mode
              </label>
            </div>
            <div class="form-check">
@@ -157,6 +149,10 @@
                 <div class="form-check">
                   <input class="form-check-input" type="checkbox" name="wapitiOption6" value="ssrf">
                   <label class="form-check-label">ssrf</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" name="wapitiOption7" value="xxe">
+                  <label class="form-check-label">xxe</label>
                 </div>
 
               </div>

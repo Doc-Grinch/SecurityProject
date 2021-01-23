@@ -1,7 +1,7 @@
 from bottle import Bottle, run, static_file, template, request #Allow to use Bottle functions
-import os, sys, webbrowser, re
-from pprint import pprint                                   #Allow to interact with the system
-import subprocess                                              #Allow to use system commands
+import os, sys, webbrowser, re, os.path                        #Allow to interact with the system
+import subprocess
+from os import path                                     #Allow to use system commands
 from subprocess import PIPE
 
 app = Bottle()
@@ -41,9 +41,7 @@ def testURL():
     dir2 = request.forms.dirsearchOption2
     #Nikto's options
     tV1 = request.forms.niktoOptions1
-    tV2 = request.forms.niktoOptions2
     tV3 = request.forms.niktoOptions3
-    tV4 = request.forms.niktoOptions4
     tV5 = request.forms.niktoOptions5
     tV6 = request.forms.niktoOptions6
     #Wapiti's Options
@@ -53,17 +51,18 @@ def testURL():
     wo4 = request.forms.wapitiOption4
     wo5 = request.forms.wapitiOption5
     wo6 = request.forms.wapitiOption6
-    wapitiAllOptions = wo1+','+wo2+','+wo3+','+wo4+','+wo5+','+wo6
+    wo7 = request.forms.wapitiOption7
+    wapitiAllOptions = wo1+','+wo2+','+wo3+','+wo4+','+wo5+','+wo6+','+wo7
 
 
     if not testedURL:
-        return "Veuillez entrer une URL"
+        return "Please enter an URL"
 
-    result = subprocess.run(['sudo', '../dirsearch/dirsearch.py', '-u', testedURL, '-e', 'php,html,txt', '-w', #Scanning with Dirsearch, using a
-     ROOT_PATH + usedWordlist, '--simple-report', 'results/target.txt', dir1, "--extensions="+dir2])           #wordlist choosen by the user and create a simple ouput
+    result = subprocess.run(['sudo', '../dirsearch/dirsearch.py', '-u', testedURL, '-w', #Scanning with Dirsearch, using a
+     ROOT_PATH + usedWordlist, '--simple-report', 'results/target.txt',"-R", dir1, "--extensions="+dir2])           #wordlist choosen by the user and create a simple ouput
                                                                                                                #in results/target.txt
-
-
+    if not path.exists('results/target.txt'):
+        return "The site is unrechable or the URL given is not well formated"
 
     with open('results/target.txt', 'r') as readFile:
         with open('views/scanner.html','w') as writeFile:
@@ -73,7 +72,7 @@ def testURL():
                 writeFile.write(line)
                 writeFile.write('  </br>')
 
-    niktoResults = subprocess.run(['sudo', 'nikto', '-host', testedURL, '-Tuning', tV1, tV2, '-maxtime', tV5, tV6, '-ask', 'no', tV3, tV4, '-output', ROOT_PATH + '/results/niktoResult.txt'])
+    niktoResults = subprocess.run(['sudo', 'nikto', '-host', testedURL, '-Tuning', tV1, '-maxtime', tV5, tV6, '-ask', 'no', tV3, '-output', ROOT_PATH + '/results/niktoResult.txt'])
 
     with open('results/niktoResult.txt', 'r') as readFile:
         with open('views/scanner.html','a') as writeFile:
